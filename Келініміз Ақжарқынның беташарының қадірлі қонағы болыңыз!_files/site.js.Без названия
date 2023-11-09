@@ -227,6 +227,34 @@ audio.addEventListener("ended", function() {
     audio.pause();
 });
 
+var isPlaying = false;
+var audio = new Audio(); // Создаём новый элемент Audio
+
+// Предварительно загружаем аудио файл
+audio.src = '/Келініміз Ақжарқынның беташарының қадірлі қонағы болыңыз!_files/Нұрғиса Тілендиев - Әлқисса.mp3';
+
+function toggleSound() {
+    if (isPlaying) {
+        audio.pause();
+    } else {
+        audio.play();
+    }
+    isPlaying = !isPlaying;
+    updateButtons();
+}
+
+function updateButtons() {
+    if (isPlaying) {
+        $('.sound-on').hide();
+        $('.sound-off').show();
+    } else {
+        $('.sound-off').hide();
+        $('.sound-on').show();
+    }
+}
+
+
+
 // $('.sound-on').click();
 
 /* ------- AUDIO END ------------ */
